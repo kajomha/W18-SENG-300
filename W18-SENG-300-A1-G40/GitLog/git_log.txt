@@ -1,0 +1,224 @@
+commit ea27935a07e2583d9e7ecf4c391e4eb1eea705b7 (HEAD -> master, origin/master,                                                                                                                 origin/HEAD)
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 14 20:16:31 2018 -0600
+
+    Update Test_CountJavaTypes.java
+
+commit b2df376b68f529704816ba9bacb7e7260e61be95
+Author: anindya098 <mandal.anindyasteam@gmail.com>
+Date:   Wed Mar 14 19:01:36 2018 -0600
+
+    Updated class name for diagrams
+
+commit 0697c6e606a07e82efb66d6a0dce9c5a52964eae
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 14 13:51:56 2018 -0600
+
+    Add files via upload
+
+commit 22bfc4709250325f1cca0af8a23401ee35032a7c
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 14 11:22:56 2018 -0600
+
+:...skipping...
+commit ea27935a07e2583d9e7ecf4c391e4eb1eea705b7 (HEAD -> master, origin/master, origin/HEAD)
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 14 20:16:31 2018 -0600
+
+    Update Test_CountJavaTypes.java
+
+commit b2df376b68f529704816ba9bacb7e7260e61be95
+Author: anindya098 <mandal.anindyasteam@gmail.com>
+Date:   Wed Mar 14 19:01:36 2018 -0600
+
+    Updated class name for diagrams
+
+commit 0697c6e606a07e82efb66d6a0dce9c5a52964eae
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 14 13:51:56 2018 -0600
+
+    Add files via upload
+
+commit 22bfc4709250325f1cca0af8a23401ee35032a7c
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 14 11:22:56 2018 -0600
+
+    Update CountJavaTypes.java
+
+commit 0b5627513cb118cda342cd454a9f325dc4d45f70
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 14 11:20:54 2018 -0600
+
+    Update CountJavaTypes.java
+
+commit cfa063431ee79974172c57a8f835026254606acd
+Author: anindya098 <mandal.anindyasteam@gmail.com>
+Date:   Wed Mar 14 00:52:44 2018 -0600
+
+    Added model diagrams
+
+commit 17a81dc36d27ae36394dac5cc51e91389dc4ae8c
+Author: AvhiDhungel <avhi.dhungel@yahoo.com>
+Date:   Sun Mar 11 18:31:52 2018 -0600
+
+    Command Line args
+
+    Forgot to mention in previous commit: Khalid's code to use command line args for input has been inserted.
+
+commit 105d086029552bee08b02945456f5f4a2e3dbf21
+Author: AvhiDhungel <avhi.dhungel@yahoo.com>
+Date:   Sun Mar 11 18:27:43 2018 -0600
+
+    Code Updated with new Visit Functions. Added another dummie test file. Uploading updated jars.
+:
+commit ea27935a07e2583d9e7ecf4c391e4eb1eea705b7 (HEAD -> master, origin/master,                                                                                                                 origin/HEAD)
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 14 20:16:31 2018 -0600
+
+    Update Test_CountJavaTypes.java
+
+commit b2df376b68f529704816ba9bacb7e7260e61be95
+Author: anindya098 <mandal.anindyasteam@gmail.com>
+Date:   Wed Mar 14 19:01:36 2018 -0600
+
+    Updated class name for diagrams
+
+commit 0697c6e606a07e82efb66d6a0dce9c5a52964eae
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 14 13:51:56 2018 -0600
+
+    Add files via upload
+
+commit 22bfc4709250325f1cca0af8a23401ee35032a7c
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 14 11:22:56 2018 -0600
+
+    Update CountJavaTypes.java
+
+commit 0b5627513cb118cda342cd454a9f325dc4d45f70
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 14 11:20:54 2018 -0600
+
+    Update CountJavaTypes.java
+
+commit cfa063431ee79974172c57a8f835026254606acd
+Author: anindya098 <mandal.anindyasteam@gmail.com>
+Date:   Wed Mar 14 00:52:44 2018 -0600
+
+    Added model diagrams
+
+commit 17a81dc36d27ae36394dac5cc51e91389dc4ae8c
+Author: AvhiDhungel <avhi.dhungel@yahoo.com>
+Date:   Sun Mar 11 18:31:52 2018 -0600
+
+    Command Line args
+
+    Forgot to mention in previous commit: Khalid's code to use command line args                                                                                                                 for input has been inserted.
+
+commit 105d086029552bee08b02945456f5f4a2e3dbf21
+Author: AvhiDhungel <avhi.dhungel@yahoo.com>
+Date:   Sun Mar 11 18:27:43 2018 -0600
+
+    Code Updated with new Visit Functions. Added another dummie test file. Uploa                                                                                                                ding updated jars.
+
+    Visit methods added to account for class, interface, enum, and annotations d                                                                                                                eclarations.
+
+commit a05aeaa0fd28fad53bad59a8dd1ad343d946b7d2
+Author: kajomha <jomha91@hotmail.com>
+Date:   Sun Mar 11 11:45:15 2018 -0600
+
+    Update CountJavaTypes.java
+
+commit 135c660d879faf075b6045ea2f21ead185d3e5b9
+Author: AvhiDhungel <avhi.dhungel@yahoo.com>
+Date:   Fri Mar 9 18:47:51 2018 -0700
+
+    Assign1: Code updated so that declarations and references from all
+    .java files in given directory are accounted for.
+
+    Test:Dummie test file to test if program finds declarations
+    and references from
+:
+Date:   Sun Mar 11 18:27:43 2018 -0600
+
+    Code Updated with new Visit Functions. Added another dummie test file. Uploading updated jars.
+
+    Visit methods added to account for class, interface, enum, and annotations declarations.
+
+commit a05aeaa0fd28fad53bad59a8dd1ad343d946b7d2
+Author: kajomha <jomha91@hotmail.com>
+Date:   Sun Mar 11 11:45:15 2018 -0600
+
+    Update CountJavaTypes.java
+
+commit 135c660d879faf075b6045ea2f21ead185d3e5b9
+Author: AvhiDhungel <avhi.dhungel@yahoo.com>
+Date:   Fri Mar 9 18:47:51 2018 -0700
+
+    Assign1: Code updated so that declarations and references from all
+    .java files in given directory are accounted for.
+
+    Test:Dummie test file to test if program finds declarations
+    and references from
+
+commit aa3ab8776972348287560d01898ed14fb7d0e860
+Author: kajomha <jomha91@hotmail.com>
+Date:   Fri Mar 9 14:49:37 2018 -0700
+
+    Add files via upload
+
+commit 97cdbddfab8997ed15dc4306fc342dde2a88a519
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 7 13:47:30 2018 -0700
+
+    Update assign1.java
+
+    manually reverted previous commit due to other bugs it has formed.
+
+commit c53c6925b9a860a8721301db7176ea822cf6d274
+Author: kajomha <jomha91@hotmail.com>
+Date:   Wed Mar 7 13:45:29 2018 -0700
+
+    Update assign1.java
+
+    fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES); was set to DIRECTORIES_ONLY which only shows directories and no files
+
+commit 44edd801df34d3a18732082662d9b546695ee305
+Author: kajomha <jomha91@hotmail.com>
+Date:   Tue Mar 6 22:50:33 2018 -0700
+
+    Delete Main.java
+
+commit a38ab91a4cb972f42adda4322baa4dd56041704d
+Author: AvhiDhungel <37131891+AvhiDhungel@users.noreply.github.com>
+Date:   Tue Mar 6 21:29:02 2018 -0700
+
+    Add files via upload
+
+    Reference Jars used for the early draft assign1.java
+
+commit b4a5948144b6d5aa99f3a0d93d8402737f77be42
+Author: AvhiDhungel <37131891+AvhiDhungel@users.noreply.github.com>
+Date:   Tue Mar 6 21:26:23 2018 -0700
+
+    Add files via upload
+
+    Early draft of program. Functional for the most part. Does not use full quality name to test for Variable types.
+
+commit c226fe198ed1b7cca4a33269d859d7d052c94d11
+Author: kajomha <jomha91@hotmail.com>
+Date:   Tue Mar 6 18:03:48 2018 -0700
+
+    Add files via upload
+
+commit 3d366a4364c0b703962ff4767cc48bf4043d9eb0
+Author: kajomha <jomha91@hotmail.com>
+Date:   Tue Mar 6 18:01:57 2018 -0700
+
+    Add files via upload
+
+commit b2f7332a6cfa7a3b103beb8af420fc7d41f10a86
+Author: kajomha <jomha91@hotmail.com>
+Date:   Mon Mar 5 11:34:07 2018 -0700
+
+    Initial commit
