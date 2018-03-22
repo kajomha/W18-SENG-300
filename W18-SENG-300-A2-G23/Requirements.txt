@@ -1,0 +1,18 @@
+Requirements
+
+This file lists the requirements as set by the client. 
+
+***Second Iteration:
+You are to develop an analysis tool that will find ALL the Java type declarations and references within a specified directory (recursively) OR JAR file.
+
+You and your team must develop a standalone Java application that:
+
+    1. takes a pathname to indicate a directory or JAR file of interest,
+    2. finds the declarations of all types within that directory (recursively) or JAR file, and
+    3. finds the references to all types within that directory (recursively) or JAR file.
+    
+ The output must be a string written to the console (i.e., standard output) stating the name of each type, the count of declarations, and the count of references:
+
+        <type>. Declarations found: <count>; references found: <count>.
+
+where the <type> and two <count>s are to be replaced with the relevant values.
