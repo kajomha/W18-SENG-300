@@ -3,7 +3,9 @@ package CountJavaTypes;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.Enumeration;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -14,25 +16,27 @@ import java.util.Set;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
+import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.AnnotationTypeDeclaration;
+import org.eclipse.jdt.core.dom.ArrayAccess;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.SimpleName;
+import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
-import org.eclipse.jdt.core.dom.ASTVisitor;
-import org.eclipse.jdt.core.dom.AnnotationTypeDeclaration;
 
 public class CountJavaTypes {
+	
+	 public static Hashtable<String, int[]> table = new Hashtable<String, int[]>();
 	
 	 public static void main(String[] args) throws FileNotFoundException{
 		 
 		 // Store command line arguments
 		 String pathname = args[0];
-		 String type = args[1];
 		
 		 //Print confirmations of recieved input
 		 System.out.println("You have selected the following directory:\n\t" + pathname + "\n");
-		 System.out.println("You have chosen to check the java type: " + type + "\n\n");
 		 
 		 //Open the directory to read files from
 		 File directory = new File(pathname);
@@ -41,9 +45,7 @@ public class CountJavaTypes {
 		 
 		 //Boolean to check if directory has a .java file
 		 boolean no_file = true;
-		 //counters
-		 int declarations = 0;
-		 int references = 0;
+
 		 
 		 //Loop to iterate though files in the directory
 		 for (int i = 0; i<list.length; i++) {
@@ -60,27 +62,26 @@ public class CountJavaTypes {
 					 //Use scanner to read code from file. Stores whole doc in a string
 					 String code = new Scanner(list[i]).useDelimiter("\\A").next();
 
-					 //Parse method is called to invoke the AST parser(see below)
-					 //Method returns a list of its containing the counts
-					 int[] counters = parse(code,type);
-					 //Counters are updated
-					 declarations = declarations + counters[0];
-					 references = references + counters[1];
+					 // Parse the given code; this method will update the hashtable
+					 parse(code, pathname);
+
 				 }
 			 }
 		 }
+		 
 		 //Print out results
 		 if (no_file == true) {
 			 System.out.println("This directory does not contian any files with the exptension: '.java'");
 		 }
 		 
 		 else {
-			 System.out.println("\n" + type + ". Declarations found: " + declarations + "; references found: " + references);
+			 reportTable();
 		 }
+		 
 	  }  
 	 
 	 //Parse method
-	 public static int[] parse(String str, String type) {
+	 public static void parse(String str, String pathname) {
 		 
 		 //Create AST Parser
 		    
@@ -91,12 +92,19 @@ public class CountJavaTypes {
 			JavaCore.setComplianceOptions(JavaCore.VERSION_1_5, options);
 			parser.setCompilerOptions(options);
 			
-			parser.setBindingsRecovery(true);
+			//parser.setBindingsRecovery(true);
 			parser.setResolveBindings(true);
-			parser.setKind(ASTParser.K_COMPILATION_UNIT);		
+			parser.setKind(ASTParser.K_COMPILATION_UNIT);
+			
+			parser.setEnvironment(new String[] { System.getProperty("java.home") + "/lib/rt.jar" }, new String[] { pathname },
+					null, false);
+			
+			parser.setUnitName("");
 			
 			//Initialize counters to 0
 			int[] counters = {0,0};
+			
+			Hashtable<String, int[]> collection = new Hashtable<String, int[]>();
 			
 			final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
 	 
@@ -106,10 +114,11 @@ public class CountJavaTypes {
 				//Visits Class and Interface declaration, i.e. the assign1 class.
 				public boolean visit(TypeDeclaration node) {
 					
-					//Updates declaration counter if type given is class name
-					if (node.getName().getFullyQualifiedName().equals(type)) {
-						counters[0] = counters[0] + 1;
-					}
+					String nodename = node.getName().getFullyQualifiedName();
+					
+					//System.out.println("Type Declaration: " + nodename);
+					
+					updateTable(nodename, "Declaration");
 					
 					return true;				
 
@@ -118,20 +127,23 @@ public class CountJavaTypes {
 				//Visits annotations
 				public boolean visit(AnnotationTypeDeclaration node) {
 					
-					//Updates declaration counter if type given is annotation name
-					if (node.getName().getFullyQualifiedName().equals(type)) {
-						counters[0] = counters[0] + 1;
-					}	
+					String nodename = node.getName().getFullyQualifiedName();
+					
+					//System.out.println("Annotation: " + nodename);
+					
+					updateTable(nodename, "Declaration");
 					
 					return false;				
 				}
 				
 				//Visits Enumerations
 				public boolean visit(EnumDeclaration node) {
-					//Updates declaration counter if type given is enum name
-					if (node.getName().getFullyQualifiedName().equals(type)) {
-						counters[0] = counters[0] + 1;
-					}
+					
+					String nodename = node.getName().getFullyQualifiedName();
+					
+					//System.out.println("Enumeration: " + nodename);
+					
+					updateTable(nodename, "Declaration");
 					
 					return false;				
 				}
@@ -144,9 +156,11 @@ public class CountJavaTypes {
 				String[] primitive = new String[] {"int", "char", "short", "double", "boolean", "byte", "float", "long", "String" };
 				List<String> list = Arrays.asList(primitive);
 					
-				
+				/* not sure what do do about variable declarations yet
 				//Count varriable declarations and get names
 				public boolean visit(VariableDeclarationFragment node) {
+					
+					System.out.println("VARDFRA" + node.getName().getFullyQualifiedName());
 					
 					//Get parent node of VariableDeclarationFragment to get the data type
 					String field = node.getParent().toString();
@@ -182,19 +196,106 @@ public class CountJavaTypes {
 					
 					return false;				
 				}	
+				
+				*/
 	 
 				//Count references for all vars for given data type
-				public boolean visit(SimpleName node) {
-					//Look for references to the appropriate variable name
-					if (this.names.contains(node.getIdentifier())) {
-						counters[1] = counters[1] + 1;
+/*				public boolean visit(SimpleName node) {
+					
+					String nodename = node.getFullyQualifiedName();
+					
+					//System.out.println("SimpleName: " + node.getFullyQualifiedName());
+
+					updateTable(nodename, "Reference");
+					
+					return true;
+				}*/
+				
+				@Override
+				public boolean visit(SimpleType node) {
+					
+					if (node.resolveBinding() != null) {
+						
+						String nodename = node.resolveBinding().getBinaryName();
+
+						updateTable(nodename, "Reference");
 						
 					}
 					
-					return true;
-				}					
+					return false;
+
+				}
+				
+				@Override
+				public boolean visit(ArrayAccess node) {
+					
+
+					if (node.resolveTypeBinding() != null) {
+						
+						String nodename = node.resolveTypeBinding().getBinaryName();
+
+						updateTable(nodename, "Reference");
+						
+					}
+					
+					return false;
+
+				}
+				
 			});
 			//Return updated counters
-			return counters;
+			// return collection;
 		}
+	 
+	 // takes the name we got from a node, and a string telling us whether to increment Reference or Declaration count
+	 
+	 public static void updateTable (String nodename, String type) {
+		 
+		int index = 0;
+		 
+		if (type.equals("Reference")) {
+			index = 1;
+		} else if (type.equals("Declaration")) {
+			index = 0;
+		}
+		 
+		int i_array[] = {0,0};
+			
+		if (table.get(nodename) == null) {
+				
+			i_array[index] = 1;
+			table.put(nodename, i_array);
+		
+		} else {
+				
+			i_array = table.get(nodename);
+			i_array[index] += 1;
+			table.put(nodename,  i_array);
+			
+		}
+			
+		//System.out.println("Count for \"" + nodename + "\" is " + table.get(nodename)[index]);
+		 
+	 }
+	 
+	 // displays all of the information stored in our table
+	 
+	 public static void reportTable () {
+		 
+		 // use an enumeration of keys to find the type names, and then use the keys to get the counts
+		 
+		 Enumeration<String> elements = table.keys();
+		 
+		 while(elements.hasMoreElements()) {
+			 
+			 String s = elements.nextElement();
+			 int[] a = table.get(s);
+			 
+			 System.out.println(s +". Declarations found: " + a[0] + "; references found: " + a[1] + ".");
+			 
+		 }
+		 
+		 
+	 }
+	 
 }
