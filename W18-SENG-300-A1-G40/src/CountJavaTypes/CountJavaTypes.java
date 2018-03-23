@@ -18,9 +18,11 @@ import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.AnnotationTypeDeclaration;
+import org.eclipse.jdt.core.dom.AnonymousClassDeclaration;
 import org.eclipse.jdt.core.dom.ArrayAccess;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
+import org.eclipse.jdt.core.dom.PrimitiveType;
 import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
@@ -226,17 +228,44 @@ public class CountJavaTypes {
 
 				}
 				
+				public boolean visit(PrimitiveType node) {
+					
+						
+						String nodename = node.getPrimitiveTypeCode().toString();
+						
+						updateTable(nodename, "Reference");
+
+					
+					return false;
+
+				}
+				
+				public boolean visit(AnonymousClassDeclaration node) {
+					
+					
+					if (node.resolveBinding() != null) {
+						
+						//String nodename = node.resolveBinding().getBinaryName();
+						
+						System.out.println(node.resolveBinding());
+
+						//updateTable(nodename, "Declaration");
+						
+					}
+
+				
+				return false;
+
+				}
+				
 				@Override
 				public boolean visit(ArrayAccess node) {
 					
-
-					if (node.resolveTypeBinding() != null) {
 						
-						String nodename = node.resolveTypeBinding().getBinaryName();
+					String nodename = node.getArray().resolveTypeBinding().getQualifiedName();
 
-						updateTable(nodename, "Reference");
+					updateTable(nodename, "Reference");
 						
-					}
 					
 					return false;
 
