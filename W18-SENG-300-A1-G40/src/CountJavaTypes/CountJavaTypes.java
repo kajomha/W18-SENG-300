@@ -103,11 +103,6 @@ public class CountJavaTypes {
 			
 			parser.setUnitName("");
 			
-			//Initialize counters to 0
-			int[] counters = {0,0};
-			
-			Hashtable<String, int[]> collection = new Hashtable<String, int[]>();
-			
 			final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
 	 
 			//Visit string
@@ -149,16 +144,8 @@ public class CountJavaTypes {
 					
 					return false;				
 				}
-				
-				//Used to count references after getting variable names
-				Set<String> names = new HashSet<String>();
-				
-				//Looks like we're not supposed to count primitive + String var declarations as type declarations
-				//The following arary turned list is used to test if give type is one of them
-				String[] primitive = new String[] {"int", "char", "short", "double", "boolean", "byte", "float", "long", "String" };
-				List<String> list = Arrays.asList(primitive);
 					
-				/* not sure what do do about variable declarations yet
+				/* not sure what do do about variable declarations yet. don't know if we need them?
 				//Count varriable declarations and get names
 				public boolean visit(VariableDeclarationFragment node) {
 					
@@ -202,16 +189,20 @@ public class CountJavaTypes {
 				*/
 	 
 				//Count references for all vars for given data type
-/*				public boolean visit(SimpleName node) {
-					
-					String nodename = node.getFullyQualifiedName();
-					
-					//System.out.println("SimpleName: " + node.getFullyQualifiedName());
-
-					updateTable(nodename, "Reference");
-					
-					return true;
-				}*/
+//				public boolean visit(SimpleName node) {
+//					
+//					if (node.resolveBinding() != null) {
+//						
+//						String nodename = node.resolveBinding().getName();
+//
+//						updateTable(nodename, "Reference");
+//						
+//					}
+//					
+//					return true;
+//				}
+				
+				
 				
 				@Override
 				public boolean visit(SimpleType node) {
@@ -222,11 +213,29 @@ public class CountJavaTypes {
 
 						updateTable(nodename, "Reference");
 						
+					} else {
+						
+						// THIS ONE MIGHT NEED SOME CHANGES
+						// currently I can't figure out how to get a fully qualified name for
+						// types imported from eclipse
+						
+						// for example, ASTVisitor should presumably have a fully qualified name of
+						// org.eclipse.jdt.core.dom.ASTVisitor
+						// but resolveBinding() run on such a node is null
+						
+						// as such, for now we just add those nodes as non-fully-qualified names
+						
+						String nodename = node.getName().toString();
+
+						updateTable(nodename, "Reference");
+						
 					}
 					
 					return false;
 
 				}
+				
+
 				
 				public boolean visit(PrimitiveType node) {
 					
@@ -245,11 +254,14 @@ public class CountJavaTypes {
 					
 					if (node.resolveBinding() != null) {
 						
-						//String nodename = node.resolveBinding().getBinaryName();
+						// MAY NEED TO BE CHANGED!
+						// anonymous classes don't have names, obviously, which complicates counting
+						// them in our table
 						
-						System.out.println(node.resolveBinding());
-
-						//updateTable(nodename, "Declaration");
+						// at current I just have it count "Anonymous" as a separate declaration
+						// but I don't know if that's how Prof. Walker would want them counted
+						
+						updateTable("Anonymous", "Declaration");
 						
 					}
 
