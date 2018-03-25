@@ -1,4 +1,4 @@
-package CountJavaTypes;
+package secondIteration;
 
 import java.io.File;
 import java.io.FileNotFoundException;
