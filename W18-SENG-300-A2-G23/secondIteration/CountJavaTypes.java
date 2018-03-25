@@ -1,12 +1,7 @@
-import java.io.BufferedReader;
+package CountJavaTypes;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.JarURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.HashSet;
@@ -15,8 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
+
+//import javax.swing.JFileChooser;
 
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
@@ -212,38 +207,27 @@ public class CountJavaTypes {
 				String[] primitive = new String[] {"int", "char", "short", "double", "boolean", "byte", "float", "long", "String" };
 				List<String> list = Arrays.asList(primitive);
 					
-				/* not sure what do do about variable declarations yet
 				//Count varriable declarations and get names
-				public boolean visit(VariableDeclarationFragment node) {
+				public boolean visit(FieldDeclaration fd) {
 					
-					System.out.println("VARDFRA" + node.getName().getFullyQualifiedName());
+					//gets the type of the declarations in the list
+					Type type = fd.getType();
+					List fragmentList = fd.fragments();
+					VariableDeclarationFragment varDec;
+					SimpleName name;
 					
-					//Get parent node of VariableDeclarationFragment to get the data type
-					String field = node.getParent().toString();
-					
-					//The following is a get around since I havent been able to resolve bindings
-					//It simply rediects an input of java.lang.String to become String
-					String type2;
-					
-					if (type.equals("java.lang.String")) {
-						type2 = "String";
-					}else {
-						type2 = type;
-					}
-					
-					//Checks to see of gotten parent string, which houses the entire variable declaration,
-					//starts with type2 + [] to get the type of the declared variable
-					// the + " " is used so that an input of "int" does not trigger "int[]"
-					//This is a work around as well
-					if (field.startsWith(type2 + " ")) {
+					//Extracts the name from each variable declaration of this type
+					for	(int i = 0; i < fragmentList.size(); i++)
+					{
 						
 						//varname is added to hash in order to count references later
-						SimpleName name = node.getName();
-						this.names.add(name.getIdentifier());
+						varDec = fragmentList.get(i);
+						name = varDec.getName();
+						this.names.add(name.toString());
 						
 						//This will make sure that if input is primitive or String, declarations count is not incremented
 						//and instead, reference count is incremented
-						if (list.contains(type2) == false) {
+						if (list.contains(type) == false) {
 							counters[0] = counters[0] + 1;
 						}else {
 							counters[1] = counters[1] + 1;
@@ -253,10 +237,10 @@ public class CountJavaTypes {
 					return false;				
 				}	
 				
-				*/
+				
 	 
 				//Count references for all vars for given data type
-/*				public boolean visit(SimpleName node) {
+				public boolean visit(SimpleName node) {
 					
 					String nodename = node.getFullyQualifiedName();
 					
@@ -264,7 +248,7 @@ public class CountJavaTypes {
 					updateTable(nodename, "Reference");
 					
 					return true;
-				}*/
+				}
 				
 				@Override
 				public boolean visit(SimpleType node) {
@@ -313,7 +297,7 @@ public class CountJavaTypes {
 		} else if (type.equals("Declaration")) {
 			index = 0;
 		}
-		 
+		
 		int i_array[] = {0,0};
 			
 		if (table.get(nodename) == null) {
