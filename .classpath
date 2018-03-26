@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="src" path="W18-SENG-300-A1-G40/src"/>
+	<classpathentry excluding="MultiJavaFiles/|NonJavaFileWithJavaExtensionPlusTrueJavaFile/|NonJavaFileWithJavaExtension/|JavaAndOtherFiles/|OneJavaFile/" kind="src" path="W18-SENG-300-A1-G40/Tests"/>
+	<classpathentry kind="src" path="W18-SENG-300-A1-G40/Tests/JavaAndOtherFiles"/>
+	<classpathentry kind="src" path="W18-SENG-300-A1-G40/Tests/MultiJavaFiles"/>
+	<classpathentry kind="src" path="W18-SENG-300-A1-G40/Tests/NonJavaFileWithJavaExtension"/>
+	<classpathentry kind="src" path="W18-SENG-300-A1-G40/Tests/NonJavaFileWithJavaExtensionPlusTrueJavaFile"/>
+	<classpathentry kind="src" path="W18-SENG-300-A1-G40/Tests/OneJavaFile"/>
+	<classpathentry excluding="TestSuite/testCases_javaAndJAR/|TestSuite/testCases_javaAndJAR_recursive/|secondIteration/|TestSuite/testCases_java/" kind="src" path="W18-SENG-300-A2-G23"/>
+	<classpathentry kind="src" path="W18-SENG-300-A2-G23/secondIteration"/>
+	<classpathentry kind="src" path="W18-SENG-300-A2-G23/TestSuite/testCases_java"/>
+	<classpathentry kind="src" path="W18-SENG-300-A2-G23/TestSuite/testCases_javaAndJAR"/>
+	<classpathentry kind="src" path="W18-SENG-300-A2-G23/TestSuite/testCases_javaAndJAR_recursive"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/commons-configuration-1.6.jar"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/org.eclipse.core.contenttype-3.5.100.v20160418-1621.jar"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/org.eclipse.core.jobs-3.8.0.v20160509-0411.jar"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/org.eclipse.core.resources.jar"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/org.eclipse.core.runtime-3.12.0.v20160606-1342.jar"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/org.eclipse.equinox.common-3.8.0.v20160509-1230.jar"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/org.eclipse.equinox.preferences-3.6.0.v20160120-1756.jar"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/org.eclipse.equinox.registry-3.6.100.v20160223-2218.jar"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/org.eclipse.jdt.core-3.13.100.jar"/>
+	<classpathentry kind="lib" path="W18-SENG-300-A1-G40/new jars/org.eclipse.osgi-3.11.0.v20160603-1336.jar"/>
+	<classpathentry kind="output" path="W18-SENG-300-A1-G40/bin"/>
+</classpath>

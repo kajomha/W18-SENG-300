@@ -1,0 +1,14 @@
+public class JavaButInATextFile {
+
+	int a;
+	int b;
+	String c;
+	
+	int d = a + 5;
+			
+	public void add() {
+		d = 6;
+		int gg = 7;
+	}
+	
+}
