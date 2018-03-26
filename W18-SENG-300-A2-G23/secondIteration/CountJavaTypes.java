@@ -1,5 +1,3 @@
-package secondIteration;
-
 import java.io.BufferedReader;
 import java.io.*;
 import java.io.FileNotFoundException;
@@ -126,7 +124,7 @@ public class CountJavaTypes {
          
          //Print out results
          if (no_file == true) {
-             System.out.println("This directory does not contian any files with the exptension: '.java'");
+             System.out.println("This directory does not contain any files with the extension: '.java'");
          }
          
          else {

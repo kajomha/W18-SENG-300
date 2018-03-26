@@ -14,7 +14,7 @@ public class TestCaseJavaAndJar {
     public void TestCaseJava() {
         
         CountJavaTypes counter = new CountJavaTypes();
-        String path = "C:\\Users\\Ryan\\Documents\\W18-SENG-300\\W18-SENG-300-A2-G23\\TestSuite\\testCases_javaAndJAR";
+        String path = AllTests.BASEDIR + "\\W18-SENG-300-A2-G23\\TestSuite\\testCases_javaAndJAR";
         String[] args = new String[] {path};
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
@@ -26,21 +26,20 @@ public class TestCaseJavaAndJar {
             // TODO Auto-generated catch block
             fail("B");
         }
-        assertEquals("You have selected the following directory:\n" + 
-                "    C:\\Users\\Ryan\\Documents\\W18-SENG-300\\W18-SENG-300-A2-G23\\TestSuite\\testCases_javaAndJAR\n" + 
-                "\n" + 
-                "Type4. Declarations found: 1; references found: 0.\n" + 
-                "Type3. Declarations found: 1; references found: 0.\n" + 
-                "Type2. Declarations found: 1; references found: 0.\n" + 
-                "Type1. Declarations found: 1; references found: 0.\n" + 
-                "n. Declarations found: 0; references found: 2.\n" + 
-                "m. Declarations found: 0; references found: 2.\n" + 
-                "l. Declarations found: 0; references found: 2.\n" + 
-                "k. Declarations found: 0; references found: 2.\n" + 
-                "j. Declarations found: 0; references found: 2.\n" + 
-                "i. Declarations found: 0; references found: 2.\n" + 
-                "y. Declarations found: 0; references found: 2.\n" + 
-                "x. Declarations found: 0; references found: 2.", outContent.toString());
+        assertEquals("Youhaveselectedthefollowingdirectory:"+
+        "C:\\Users\\Ryan\\Documents\\W18-SENG-300\\W18-SENG-300-A2-G23\\TestSuite\\testCases_javaAndJAR"+
+        "Type4.Declarationsfound:1;referencesfound:0."+
+        "Type3.Declarationsfound:1;referencesfound:0."+
+        "Type2.Declarationsfound:1;referencesfound:0."+
+        "Type1.Declarationsfound:1;referencesfound:0."+
+        "n.Declarationsfound:0;referencesfound:2."+
+        "m.Declarationsfound:0;referencesfound:2."+
+        "l.Declarationsfound:0;referencesfound:2."+
+        "k.Declarationsfound:0;referencesfound:2."+
+        "j.Declarationsfound:0;referencesfound:2."+
+        "i.Declarationsfound:0;referencesfound:2."+
+        "y.Declarationsfound:0;referencesfound:2."+
+        "x.Declarationsfound:0;referencesfound:2.",outContent.toString().replaceAll("\\s+",""));
     }
 
 }
