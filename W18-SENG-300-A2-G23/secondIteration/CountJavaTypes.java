@@ -207,7 +207,7 @@ public class CountJavaTypes {
                 public boolean visit(SimpleName node) {
                     
                     String nodename = node.getFullyQualifiedName();
-                    if (node.resolveBinding() != null && node.resolveTypeBinding().isPrimitive()) {
+                    if (node.resolveTypeBinding() != null && node.resolveTypeBinding().isPrimitive()) {
                     
                     		updateTable(nodename, "Reference");
                     }
