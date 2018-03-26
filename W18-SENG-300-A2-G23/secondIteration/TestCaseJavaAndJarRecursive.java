@@ -25,19 +25,19 @@ public class TestCaseJavaAndJarRecursive {
             // TODO Auto-generated catch block
             fail("B");
         }
-        assertEquals(" You have selected the following directory:\n" + 
-                "    C:\\Users\\Ryan\\Documents\\W18-SENG-300\\W18-SENG-300-A2-G23\\TestSuite\\testCases_JAR_recursive\n" + 
-                "\n" + 
-                "Type2. Declarations found: 2; references found: 0.\n" + 
-                "Type1. Declarations found: 2; references found: 0.\n" + 
-                "n. Declarations found: 0; references found: 2.\n" + 
-                "m. Declarations found: 0; references found: 2.\n" + 
-                "l. Declarations found: 0; references found: 2.\n" + 
-                "k. Declarations found: 0; references found: 2.\n" + 
-                "j. Declarations found: 0; references found: 2.\n" + 
-                "i. Declarations found: 0; references found: 2.\n" + 
-                "y. Declarations found: 0; references found: 2.\n" + 
-                "x. Declarations found: 0; references found: 2.", outContent.toString());
+        String testString = "Youhaveselectedthefollowingdirectory:"+
+        "C:\\Users\\Ryan\\Documents\\W18-SENG-300\\W18-SENG-300-A2-G23\\TestSuite\\testCases_JAR_recursive"+
+        "Type2.Declarationsfound:2;referencesfound:0."+
+        "Type1.Declarationsfound:2;referencesfound:0."+
+        "n.Declarationsfound:0;referencesfound:2."+
+        "m.Declarationsfound:0;referencesfound:2."+
+        "l.Declarationsfound:0;referencesfound:2."+
+        "k.Declarationsfound:0;referencesfound:2."+
+        "j.Declarationsfound:0;referencesfound:2."+
+        "i.Declarationsfound:0;referencesfound:2."+
+        "y.Declarationsfound:0;referencesfound:2."+
+        "x.Declarationsfound:0;referencesfound:2.";
+        assertEquals(testString, outContent.toString().replaceAll("\\s+",""));
     }
 @Test
 public void TestCaseJavaAndJarRecursive2() {
@@ -55,21 +55,20 @@ public void TestCaseJavaAndJarRecursive2() {
             // TODO Auto-generated catch block
             fail("B");
         }
-        assertEquals("You have selected the following directory:\n" + 
-                "    C:\\Users\\Ryan\\Documents\\W18-SENG-300\\W18-SENG-300-A2-G23\\TestSuite\\testCases_JAR_recursive2\n" + 
-                "\n" + 
-                "Type4. Declarations found: 1; references found: 0.\n" + 
-                "Type3. Declarations found: 1; references found: 0.\n" + 
-                "Type2. Declarations found: 2; references found: 0.\n" + 
-                "Type1. Declarations found: 2; references found: 0.\n" + 
-                "n. Declarations found: 0; references found: 3.\n" + 
-                "m. Declarations found: 0; references found: 3.\n" + 
-                "l. Declarations found: 0; references found: 3.\n" + 
-                "k. Declarations found: 0; references found: 3.\n" + 
-                "j. Declarations found: 0; references found: 3.\n" + 
-                "i. Declarations found: 0; references found: 3.\n" + 
-                "y. Declarations found: 0; references found: 3.\n" + 
-                "x. Declarations found: 0; references found: 3.", outContent.toString());
+        String testString =
+        "Youhaveselectedthefollowingdirectory:"
+        + "C:\\Users\\Ryan\\Documents\\W18-SENG-300\\W18-SENG-300-A2-G23\\TestSuite\\testCases_JAR_recursive2"
+        + "Type2.Declarationsfound:3;referencesfound:0."
+        + "Type1.Declarationsfound:3;referencesfound:0."
+        + "n.Declarationsfound:0;referencesfound:3."
+        + "m.Declarationsfound:0;referencesfound:3."
+        + "l.Declarationsfound:0;referencesfound:3."
+        + "k.Declarationsfound:0;referencesfound:3."
+        + "j.Declarationsfound:0;referencesfound:3."
+        + "i.Declarationsfound:0;referencesfound:3."
+        + "y.Declarationsfound:0;referencesfound:3."
+        + "x.Declarationsfound:0;referencesfound:3.";
+        assertEquals(testString,outContent.toString().replaceAll("\\s+",""));
     }
 
 @Test
@@ -88,19 +87,19 @@ public void TestCaseJavaAndJarRecursive3() {
             // TODO Auto-generated catch block
             fail("B");
         }
-        assertEquals("You have selected the following directory:\n" + 
-                "    C:\\Users\\Ryan\\Documents\\W18-SENG-300\\W18-SENG-300-A2-G23\\TestSuite\\testCases_JAR_recursive3\n" + 
-                "\n" + 
-                "Type2. Declarations found: 1; references found: 0.\n" + 
-                "Type1. Declarations found: 1; references found: 0.\n" + 
-                "n. Declarations found: 0; references found: 1.\n" + 
-                "m. Declarations found: 0; references found: 1.\n" + 
-                "l. Declarations found: 0; references found: 1.\n" + 
-                "k. Declarations found: 0; references found: 1.\n" + 
-                "j. Declarations found: 0; references found: 1.\n" + 
-                "i. Declarations found: 0; references found: 1.\n" + 
-                "y. Declarations found: 0; references found: 1.\n" + 
-                "x. Declarations found: 0; references found: 1.", outContent.toString());
+        String testString = "Youhaveselectedthefollowingdirectory:"+
+        "C:\\Users\\Ryan\\Documents\\W18-SENG-300\\W18-SENG-300-A2-G23\\TestSuite\\testCases_JAR_recursive3"+
+        "Type2.Declarationsfound:4;referencesfound:0."+
+        "Type1.Declarationsfound:4;referencesfound:0."+
+        "n.Declarationsfound:0;referencesfound:4."+
+        "m.Declarationsfound:0;referencesfound:4."+
+        "l.Declarationsfound:0;referencesfound:4."+
+        "k.Declarationsfound:0;referencesfound:4."+
+        "j.Declarationsfound:0;referencesfound:4."+
+        "i.Declarationsfound:0;referencesfound:4."+
+        "y.Declarationsfound:0;referencesfound:4."+
+        "x.Declarationsfound:0;referencesfound:4.";
+        assertEquals(testString,outContent.toString().replaceAll("\\s+",""));
     }
 
 }
