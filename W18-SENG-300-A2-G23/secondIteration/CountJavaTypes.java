@@ -1,4 +1,4 @@
-package secondIteration;
+
 
 import java.io.BufferedReader;
 import java.io.*;
@@ -202,53 +202,15 @@ public class CountJavaTypes {
                     return false;               
                 }
                 
-                //Used to count references after getting variable names
-                Set<String> names = new HashSet<String>();
-                
-                //Looks like we're not supposed to count primitive + String var declarations as type declarations
-                //The following arary turned list is used to test if give type is one of them
-                String[] primitive = new String[] {"int", "char", "short", "double", "boolean", "byte", "float", "long", "String" };
-                List<String> list = Arrays.asList(primitive);
-                    
-                //Count varriable declarations and get names
-                public boolean visit(FieldDeclaration fd) {
-                    
-                    //gets the type of the declarations in the list
-                    Type type = fd.getType();
-                    List fragmentList = fd.fragments();
-                    VariableDeclarationFragment varDec;
-                    SimpleName name;
-                    
-                    //Extracts the name from each variable declaration of this type
-                    for (int i = 0; i < fragmentList.size(); i++)
-                    {
-                        
-                        //varname is added to hash in order to count references later
-                        varDec = (VariableDeclarationFragment) fragmentList.get(i);
-                        name = varDec.getName();
-                        this.names.add(name.toString());
-                        
-                        //This will make sure that if input is primitive or String, declarations count is not incremented
-                        //and instead, reference count is incremented
-                        if (list.contains(type) == false) {
-                            counters[0] = counters[0] + 1;
-                        }else {
-                            counters[1] = counters[1] + 1;
-                        }
-                    }
-                    
-                    return false;               
-                }   
-                
-                
      
-                //Count references for all vars for given data type
+                //Count references for all primitives 
                 public boolean visit(SimpleName node) {
                     
                     String nodename = node.getFullyQualifiedName();
+                    if (node.resolveBinding() != null && node.resolveTypeBinding().isPrimitive()) {
                     
-                    //System.out.println("SimpleName: " + node.getFullyQualifiedName());
-                    updateTable(nodename, "Reference");
+                    		updateTable(nodename, "Reference");
+                    }
                     
                     return true;
                 }
@@ -260,7 +222,6 @@ public class CountJavaTypes {
                         
                         String nodename = node.resolveBinding().getBinaryName();
                         updateTable(nodename, "Reference");
-                        
                     }
                     
                     return false;
